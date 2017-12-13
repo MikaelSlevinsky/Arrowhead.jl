@@ -1,5 +1,14 @@
+__precompile__()
 module Arrowhead
 
-# package code goes here
+using Base, HierarchicalMatrices
+
+import Base: size, getindex, inv, issymmetric, chol, eig, eigvals, +, -
+
+export SymArrow, UpperArrow
+
+include("SymArrow.jl")
+include("UpperArrow.jl")
+include("secular.jl")
 
 end # module
