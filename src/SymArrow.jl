@@ -162,6 +162,7 @@ function eigvals(A::SymArrow{T}; verbose::Bool = false) where T
 
     λk = last_initial_guess(a[n-1], nrmb2, c)
     δλk = λk
+    verbose && println(n," This is the update: ", δλk," and this is the condition: ",n2*eps(λk))
     while abs(δλk) > n2*eps(λk)
         δλk = last_pick_zero_update(A, λk)
         λk += isfinite(δλk) ? δλk : zero(T)

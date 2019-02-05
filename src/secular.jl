@@ -112,11 +112,11 @@ end
 function last_initial_guess(an::T, nrmb2::T, c::T) where T
     ret = an
     if c < an
-        cma2 = (c-an)/2
-        ret += cma2+sqrt(cma2^2+nrmb2)
-    else
         amc2 = (an-c)/2
         ret += nrmb2/(amc2+sqrt(amc2^2+nrmb2))
+    else
+        cma2 = (c-an)/2
+        ret += cma2+sqrt(cma2^2+nrmb2)
     end
     ret
 end
